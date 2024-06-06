@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400;700&family=Orbitron:wght@400;500;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Hammersmith One", "Orbitron", sans-serif;
+  color: purple;
+}
+
+.Barra {
+  background-color: black;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#ZonaJuego {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  border: 2px solid purple;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(200deg, rgb(2, 0, 36) 0%, rgb(57, 9, 121) 39%, rgb(246, 0, 255) 100%);
+}
+
+#PointButton {
+  font-size: 2rem;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: red;
+  top: 50px;
+  left: 50px;
+  cursor: pointer;
+  position: absolute;
+}
+
+div.NickBarra {
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.Top-Lista {
+  padding-right: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.Top-Lista ul {
+  list-style: none;
+}
+
+div.Cont-tittle {
+  display: flex;
+  align-items: center;
+}
+div.Cont-tittle .Logo-Tittle {
+  font-size: 4rem;
+  color: white;
+  cursor: pointer;
+  text-shadow: 0 0 5px purple, 0 0 25px purple, 0 0 50px purple, 0 0 100px purple;
+}/*# sourceMappingURL=style.css.map */

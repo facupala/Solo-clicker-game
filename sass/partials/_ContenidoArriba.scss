@@ -1,0 +1,33 @@
+div.NickBarra{
+    padding-left: 25px;
+    
+    display: flex;
+    align-items: center;
+}
+.Top-Lista{
+    padding-right: 25px;
+    display: flex;
+    align-items:center ;
+    flex-direction: column;
+    
+    ul{
+        list-style: none;
+        
+        
+    }
+}
+div.Cont-tittle{
+    display: flex;
+    align-items: center;
+    .Logo-Tittle{
+    
+        font-size: 4rem;
+        color: white;
+        cursor: pointer;
+        text-shadow:0 0 5px purple,
+        0 0 25px purple,
+        0 0 50px purple,
+        0 0 100px purple ;
+        
+    }  
+}
