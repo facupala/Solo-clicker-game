@@ -92,6 +92,9 @@
 // jugador1.saludar();
 
 //! (Descargue la extension llamada better comments)
+//! la puntuacion inicializa en 0
+PlayerPoint=document.querySelector("#Puntuacion");
+PlayerPoint.innerHTML="<Strong>"+0+"</Strong>";
 //! FUNCIONES 
 function ValidarNombre(){
     if(nombre.length <= 10 && nombre !== ""){
@@ -143,6 +146,14 @@ function playRandomEffect() {
     const audio = new Audio(EffectAtack[RandomEffect]);
     audio.play();
 }
+//!NO FUNCIONA BIEN
+// function MonsterEnemyRandom() {
+//     const RandomMonster=Math.floor(Math.random() * MonsterEnemy.length)
+//     const MonsterRandom= MonsterEnemy[RandomMonster];
+//     EnemyClick= querySelector("#EnemyClickerPoint");
+//     EnemyClick.innerHTML=`<img src="${MonsterRandom}" class="monster-image" alt="Monstruo">`;
+
+// }
 //! CREAMOS UN CONSTRUCTOR PARA LOS JUGADORES
 class players{
     constructor(nombre,puntaje,nacionalidad){
@@ -152,6 +163,12 @@ class players{
     }
 }
 //!CREAMOS UN ARRAY PARA LOS JUGADORES Y SONIDO
+// const MonsterEnemy=[
+//     "./Monster/monster1.webp",
+//     "./Monster/monster2.webp",
+//     "./Monster/monster3.png",
+//     "./Monster/monster4.webp"
+// ]
 const EffectAtack=[
     "./musica/espada1.mp3",
     "./musica/espada2.mp3",
@@ -204,6 +221,7 @@ clicker.addEventListener("click",() => {
     ActualizarTop();
     moverPunto();
     playRandomEffect();
+    // MonsterEnemyRandom();
 });
 //! SUMAMOS LA INFO DEL JUGADOR AL ARRAY
 const jugardor1= new players(nombre,puntaje);
@@ -222,7 +240,7 @@ for(i=0,o=1;i < jugadores.length; i++ , o++){
 }
 
 
-
+//! por ahora no Funciona bien reproduce la primera vez pero cuando le das reiniciar a la pagina tira un error 
 const Musica = new Audio ("./musica/ost2.mp3");
 const MPause=document.querySelector("#MusicInte");
 MPause.addEventListener("click",() => {

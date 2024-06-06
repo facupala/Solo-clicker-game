@@ -5,10 +5,11 @@ div.NickBarra{
     align-items: center;
 }
 .Top-Lista{
-    padding-right: 25px;
+    padding: 10px 25px 10px 25px;
     display: flex;
     align-items:center ;
     flex-direction: column;
+    border: 2px solid purple;
     
     ul{
         list-style: none;
@@ -28,6 +29,12 @@ div.Cont-tittle{
         0 0 25px purple,
         0 0 50px purple,
         0 0 100px purple ;
-        
-    }  
+        }
+    
+    .Logo-Tittle:hover{
+        text-shadow:0 0 5px green,
+        0 0 25px green,
+        0 0 50px green,
+        0 0 100px green ;
+        }
 }

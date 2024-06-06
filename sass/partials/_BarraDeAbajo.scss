@@ -1,0 +1,58 @@
+
+.Titulo-Puntuacion{
+    padding-left: 25px;
+    border: 2px solid purple;
+    padding-right: 10px;
+}
+.Boton-Reiniciar{
+//     background-color: purple;
+//     color: white;
+//     shadow:0 0 5px purple,
+//         0 0 25px purple,
+//         0 0 50px purple,
+//         0 0 100px purple ;
+    
+//     cursor: pointer;
+//     padding: 10px 10px 10px 10px;
+//     border-radius: 40%;
+background-color: transparent;
+color: #fff;
+border: 2px solid purple;
+border-radius: 5px;
+padding: 10px 20px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+position: relative;
+overflow: hidden;
+transition: color 0.4s, border-color 0.4s;
+text-shadow:0 0 5px purple,
+        0 0 25px purple,
+        0 0 50px purple,
+        0 0 100px purple ;
+}
+.Boton-Reiniciar::before {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, purple, purple, purple, purple);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: animate 10s linear infinite;
+}
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.Boton-Reiniciar:hover {
+    color: purple;
+    border-color: white;
+    text-shadow:0 0 5px white,
+        0 0 25px white,
+        0 0 50px white,
+        0 0 100px white ;
+}

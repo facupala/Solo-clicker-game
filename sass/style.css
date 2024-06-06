@@ -12,18 +12,26 @@ body {
   color: purple;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .Barra {
   background-color: black;
   padding-top: 10px;
   padding-bottom: 25px;
+  height: 30%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #ZonaJuego {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 50%;
   padding-top: 150px;
   padding-bottom: 150px;
   border: 2px solid purple;
@@ -50,10 +58,11 @@ div.NickBarra {
 }
 
 .Top-Lista {
-  padding-right: 25px;
+  padding: 10px 25px 10px 25px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  border: 2px solid purple;
 }
 .Top-Lista ul {
   list-style: none;
@@ -68,4 +77,52 @@ div.Cont-tittle .Logo-Tittle {
   color: white;
   cursor: pointer;
   text-shadow: 0 0 5px purple, 0 0 25px purple, 0 0 50px purple, 0 0 100px purple;
+}
+div.Cont-tittle .Logo-Tittle:hover {
+  text-shadow: 0 0 5px green, 0 0 25px green, 0 0 50px green, 0 0 100px green;
+}
+
+.Titulo-Puntuacion {
+  padding-left: 25px;
+  border: 2px solid purple;
+  padding-right: 10px;
+}
+
+.Boton-Reiniciar {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid purple;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s, border-color 0.4s;
+  text-shadow: 0 0 5px purple, 0 0 25px purple, 0 0 50px purple, 0 0 100px purple;
+}
+
+.Boton-Reiniciar::before {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, purple, purple, purple, purple);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.Boton-Reiniciar:hover {
+  color: purple;
+  border-color: white;
+  text-shadow: 0 0 5px white, 0 0 25px white, 0 0 50px white, 0 0 100px white;
 }/*# sourceMappingURL=style.css.map */
