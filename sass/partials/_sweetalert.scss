@@ -1,0 +1,5 @@
+div:where(.swal2-container) div:where(.swal2-popup){
+    background-color: black !important;
+    color: white !important;
+    border: 4px solid purple !important;
+}

@@ -1,9 +1,14 @@
 .Barra{
-    background-color: black;
+   
     padding-top: 10px ;
     padding-bottom: 25px;
-    height: 30%;
+    height: 30vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+}
+.dark-Mode{
+    background-color: black;
+    
 }

@@ -1,98 +1,16 @@
-// ctrl+k+c para comentar ctrl+k+u para descomentar
-// console.log("funciona");
-// alert("hola bienvenido al juego de pregunta random");
-// let nombre = prompt("ingrese su nombre");
-// let apellido = prompt("ingrese su apellido");
-// let i=0;
-// while(i<1){ 
-//     if(nombre !== "" && apellido !== ""){
-//         alert("Bienvenido"+" "+ nombre +" "+apellido);
-//         i++;
-//     }else if(nombre == ""){
-//         alert("tiene que ingresar nombre");
-//         nombre = prompt("ingrese nombre");  
-//     }else if(apellido == ""){
-//         alert("tieque que ingresa un apellido");
-//         apellido = prompt("ingrese apellido");
-//     }else{
-//         alert("tiene que ingresar nombre y apellido");
-//     }
-// }
-// function validarcoontraseña(){
-//     alert("repita su contraseña");
-//     let ValidarContr = prompt("");
-//     if(NuevaContraseña === ValidarContr){
-//       alert("su contraseña es correcta");
-//       ++validado;
-//       console.log("validado")
-//     }else {
-//       alert("es incorrecta ");
-//     }
-//   }
-// let animal;
-// do{
-//     animal= parseInt(prompt("cual es tu animal preferido? \n1:Perro \n2:Gato \n3:serpiente \n4:animal mitico \n(ingrese un numero para elegir)"));
-//     if(isNaN(animal)){
-//         alert("tiene que ingresar un numero");
-//     }
-// } while(animal < 1 || animal > 4 ||isNaN(animal))
-// switch(animal){
-//     case 1:
-//         alert("su animal seleccionado es 'Perro'");
-//         break;
-//     case 2:
-//         alert("su animal seleccionado es 'Gato'");
-//         break;
-//     case 3:
-//         alert("su animal seleccionado es 'Serpiente'");
-//         break;
-//     case 4:
-//         alert("su animal seleccionado es 'animal mitico'");
-//         break;
-//     default:
-//         alert("no marcaste la opcion correcta")
-//         break;
-// }
-// let contraseña = prompt("Ingresar nueva contraseña del usaurio maximo 8 caracteres");
-// let u =0
-// while(u<1){ 
-//     if (contraseña.length <= 8){
-//         alert("contraseña aprobada");
-//         u++ ;
-//     }else{
-//         alert("superaste el maximo de caracteres");
-//         contraseña =prompt("Ingresar nueva contraseña del usaurio maximo 8 caracteres");
-//     }
-// }
-// const NuevaContraseña = contraseña ;
-// console.log(NuevaContraseña);
+Swal.fire({
+    title: 'Error!',
+    text: 'Do you want to continue',
+    icon: 'error',
+    confirmButtonText: 'Cool'
+  })
 
-// let validado = 0;
-//   while (validado < 1){
-//     validarcoontraseña();
-//      }
-
-
-// let usuario1 ={
-//     nombre : "ROCIO",
-//     sexo : "femenino",
-//     edad : 24,
-//     puntaje : 1530,
-     
-// }
-// console.log(usuario1);
-// function jugadores (nombre,puntaje,nacionalidad){
-//     this.nombre=nombre ;
-//     this.puntaje=puntaje;
-//     this.nacionalidad=nacionalidad;
-//     this.saludar = function(){ console.log("hola "+ this.nombre)};
-// }
-// const jugador1 =new jugadores("Rocio",1540,"argentina");
-// console.log(jugador1);
-// jugador1.saludar();
 
 //! (Descargue la extension llamada better comments)
 //! la puntuacion inicializa en 0
+
+
+
 PlayerPoint=document.querySelector("#Puntuacion");
 PlayerPoint.innerHTML="<Strong>"+0+"</Strong>";
 //! FUNCIONES 
@@ -184,7 +102,6 @@ const jugadores=[
     {nombre:"ditto",     puntaje:30.},
  ];
 //!  INTEREACTUAMOS CON EL USUARIO Y SUMAMOS SUS DATO AL ARRAY
-alert("!Bienvenido al juego");
 let nombre=prompt("ingrese su Nickname para poder jugar(MAX 10 Caracteres)");
 let resetpunt=nombre;
 let puntaje=0;
@@ -208,9 +125,41 @@ ValidarNombre(nombre)
 //!RESETEO DE PUNTAJE
 const ReiniciarPoint =document.querySelector("#ResetPuntaje");
 ReiniciarPoint.addEventListener("click",() =>{
-    alert("reiniciar puntaje");
-    ResetearPuntaje();
-    ActualizarTop();
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger"
+        },
+        buttonsStyling: true
+      });
+      swalWithBootstrapButtons.fire({
+        title: "Desea Reiniciar?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Si!",
+        cancelButtonText: "No!",
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+            ResetearPuntaje();
+            ActualizarTop();
+            moverPunto();
+          swalWithBootstrapButtons.fire({
+            title: "Reiniciando",
+            icon: "success"
+          });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire({
+            title: "Cancelado",
+            icon: "error"
+          });
+        }
+      });
+    
+    
     moverPunto();
     
 })
@@ -241,15 +190,49 @@ for(i=0,o=1;i < jugadores.length; i++ , o++){
 
 
 //! por ahora no Funciona bien reproduce la primera vez pero cuando le das reiniciar a la pagina tira un error 
-const Musica = new Audio ("./musica/ost2.mp3");
-const MPause=document.querySelector("#MusicInte");
-MPause.addEventListener("click",() => {
-    document.button.ClassList.toggle("Pause-mode");
- if(document.button.ClassList.contains("Pause-mode")){
-    Musica.pause();
- }else{
-    Musica.play();
- }
+// const Musica = new Audio ("./musica/ost2.mp3");
+// const MPause=document.querySelector("#Musicost");
+// const audio=document.querySelector("#musicafondo");
+// window.addEventListener('load', () => {
+//     audio.play().catch(error => {
+//         console.error('La reproducción automática falló: ',error);
+//     });
+// });
+
+
+// let MusicaFondo=localStorage.getItem("musica");
+// localStorage.setItem("musica","activado");
+
+
+
+//!DARK MODE CON LOCAL STORAGE
+const BotonDark=document.querySelector("#Boton-Modo-Dark");
+const BarraJuego=document.querySelectorAll(".Barra");
+let DarkMode=localStorage.getItem("dark-Mode");
+
+
+function ActivarDarkMode(){
+    BarraJuego.forEach(barras => {
+        barras.classList.add("dark-Mode")
+    });
+     localStorage.setItem("dark-Mode","activado");
+}
+function DesactivarDarkMode(){
+    BarraJuego.forEach(barras => {
+        barras.classList.remove("dark-Mode")
+    });
+    localStorage.setItem("dark-Mode","desactivado");
+}
+if(DarkMode === "activado"){
+    ActivarDarkMode();
+}else{
+    DesactivarDarkMode();
+}
+BotonDark.addEventListener("click",() => {
+    DarkMode=localStorage.getItem("dark-Mode");
+    if(DarkMode === "activado"){
+        DesactivarDarkMode();
+    }else{
+        ActivarDarkMode();
+    }
 });
-Musica.play();
-console.log(jugadores);

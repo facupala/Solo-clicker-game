@@ -22,21 +22,30 @@
         </div>
         
     </header>
-    <section id="ZonaJuego">
+    <div id="ZonaJuego">
         <div id="PointButton" class="StarButton">
           <!-- <button id="EnemyClickerPoint">click aca</button>   -->
         </div>
-    </section>
+    </div>
     <footer class="Barra">
         <h2 class="Titulo-Puntuacion">PUNTUACION: <span id="Puntuacion"></span></h2>
-        <button>TOP</button>
+        <button>
+            shop
+        </button>
+        <button  id="Boton-Modo-Dark">
+            Modo Nocturno
+        </button>
         <button class="Boton-Reiniciar" id="ResetPuntaje">
             REINICIAR
         </button>
-        <button id="MusicInte" class="Pause-mode">
-            pause
+        <button id="Musicost" class="Boton-musica">
+            Music
+            <audio src="./musica/ost2.mp3" autoplay loop id="musicafondo">
+                
+            </audio>
         </button>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./java.js"></script>
 </body>
 </html>
