@@ -1,0 +1,17 @@
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    z-index: 1000; /* Asegura que esté encima de todo el contenido */
+}
+#playButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}

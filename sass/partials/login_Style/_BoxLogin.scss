@@ -1,0 +1,69 @@
+.box-login{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding-top: 4rem;
+padding-bottom: 4rem;
+}
+// display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     padding-top: 4rem;
+//     padding-bottom: 4rem;
+//     width: 50%;
+//     position: relative;
+//     left: 25%;
+.SoloTitle{
+        font-size: 5.5rem;
+        color: white;
+        text-shadow:0 0 5px purple,
+        0 0 25px purple,
+        0 0 50px purple,
+        0 0 100px purple ;
+        margin: 20px 0px 50px 0px ;
+}
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+    margin-bottom: 5rem;
+    label{
+        margin: 12px;
+        font-size: 2rem;
+    }
+    input{
+        border: 2px solid purple;
+        background: grey;
+        font-size: 2rem;
+        
+    }
+}
+.BotonLogin{
+    font-size: 2rem;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid purple;
+    border-radius: 5px;
+    padding: 10px 20px;
+    
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s, border-color 0.4s;
+    text-shadow:0 0 5px purple,
+            0 0 25px purple,
+            0 0 50px purple,
+            0 0 100px purple ;
+}
+.LinkJugar{
+    color: white;
+    text-decoration: none;
+}
+.h2-fot{
+    font-size: 1rem;
+    text-align: center;
+}
