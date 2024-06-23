@@ -116,11 +116,31 @@ text-shadow:0 0 5px purple,
     z-index: -1;
     animation: animate 10s linear infinite;
 }
-.Boton-musica:hover {
-    color: blue;
-    border-color: blue;
+.brbaja{
+    padding-top: 2rem;
+}
+.shop{
+    background-color: transparent;
+color: #fff;
+border: 2px solid purple;
+border-radius: 5px;
+padding: 10px 20px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+position: relative;
+overflow: hidden;
+transition: color 0.4s, border-color 0.4s;
+text-shadow:0 0 5px purple,
+        0 0 25px purple,
+        0 0 50px purple,
+        0 0 100px purple ;
+}
+.shop:hover {
+    color: purple;
+    border-color: white;
     text-shadow:0 0 5px white,
-        0 0 25px blue,
-        0 0 50px blue,
-        0 0 100px blue ;
+        0 0 25px white,
+        0 0 50px white,
+        0 0 100px white ;
 }

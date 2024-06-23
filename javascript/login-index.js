@@ -8,7 +8,7 @@ H1Title.classList.add("SoloTitle");
 H1Title.innerHTML="Solo Clicker";
 const form=document.createElement("form");
 form.innerHTML=' <label for="playerName">Ingrese su Nickname jugador:</label>'+
-'<input type="text" id="playerName" name="playerName" required>';
+'<input type="text" placeholder="Aprete enter al terminar " id="playerName" name="playerName" required>';
 const botonPlay=document.createElement("button");
 botonPlay.classList.add("BotonLogin");
 botonPlay.innerHTML='<a class="LinkJugar">Jugar</a>';
@@ -46,7 +46,7 @@ botonPlay.addEventListener("click" ,() => {
             }
           });
     }else{
-        swal.fire("tienes que ingresar un nombre")
+        swal.fire(`tienes que ingresar un nombre aprete "Enter" cuando termine de ingresar el nombre`)
         console.log("error")
     }
 })

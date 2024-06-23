@@ -1,4 +1,4 @@
-let BackgroundMusic=new Audio("./musica/ost2.mp3");
+let BackgroundMusic=new Audio ("./musica/ost2.mp3");
 // let BackgroundMusic=document.querySelector("#BackgroundMusic");
 const BotonMusica=document.querySelector("#Musicost")
 let MusicaFondo=localStorage.getItem("Musica-Fondo");

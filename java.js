@@ -101,6 +101,7 @@ clicker.addEventListener("click",() => {
     ActualizarTop();
     moverPunto();
     playRandomEffect();
+    coin.innerHTML="Coin:"+jugardor1.puntaje;
     // MonsterEnemyRandom();
 });
 
@@ -115,23 +116,23 @@ for(i=0,o=1;i < jugadores.length; i++ , o++){
 };
 
 
-//! MUSICA 
-
 //!DARK MODE CON LOCAL STORAGE
 const BotonDark=document.querySelector("#Boton-Modo-Dark");
 const BarraJuego=document.querySelectorAll(".Barra");
 let DarkMode=localStorage.getItem("dark-Mode");
-
+const body=document.querySelector("body");
 
 function ActivarDarkMode(){
     BarraJuego.forEach(barras => {
         barras.classList.add("dark-Mode")
+        body.classList.add("dark-Mode")
     });
      localStorage.setItem("dark-Mode","activado");
 }
 function DesactivarDarkMode(){
     BarraJuego.forEach(barras => {
         barras.classList.remove("dark-Mode")
+        body.classList.remove("dark-Mode")
     });
     localStorage.setItem("dark-Mode","desactivado");
 }
@@ -148,3 +149,4 @@ BotonDark.addEventListener("click",() => {
         ActivarDarkMode();
     }
 });
+
