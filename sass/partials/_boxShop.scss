@@ -2,15 +2,29 @@
     background-color: black;
     width: 20%;
     z-index: 1000;
+    position: absolute;
+    top:10%
 }
 .div-attack{
     display: flex;
     margin: 10px;
     justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
 
 }
 .div-AutoPoint{
     display: flex;
     margin: 10px;
     justify-content: space-between;
+    align-items: center;
 }
+.Boton-Attack{
+    padding: 0.8rem;
+    background-color: purple;
+    border-radius: 20%;
+    font-size: 1rem;
+    font-weight: bold;
+    
+    color: black;
+ }

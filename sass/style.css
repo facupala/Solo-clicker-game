@@ -17,6 +17,12 @@ body {
   background-color: black;
 }
 
+.Boton-Attack {
+  padding: 1rem;
+  background-color: purple;
+  color: black;
+}
+
 .Barra {
   padding-top: 10px;
   padding-bottom: 25px;
@@ -31,24 +37,56 @@ body {
 }
 
 #ZonaJuego {
-  display: flex;
   position: relative;
   width: 100%;
+  align-items: center;
   padding-top: 150px;
   padding-bottom: 150px;
-  border: 2px solid purple;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(200deg, rgb(2, 0, 36) 0%, rgb(57, 9, 121) 39%, rgb(246, 0, 255) 100%);
+  background-image: url("../../img/fondo-juego.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: purple;
 }
 
+.Temporizador {
+  display: flex;
+  font-size: 3rem;
+  color: black;
+  opacity: 0.5;
+  width: 50%;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  left: 25%;
+  top: 3%;
+}
+
+.Efectosumar {
+  z-index: 1000;
+  position: absolute;
+  top: 30%;
+  left: 43%;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: moveUp 1s forwards;
+}
+
+@keyframes moveUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
 #PointButton {
   font-size: 2rem;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: red;
-  top: 50px;
-  left: 50px;
+  width: 200px;
+  top: 30%;
+  left: 43%;
   cursor: pointer;
   position: absolute;
 }
@@ -289,18 +327,32 @@ div:where(.swal2-container) div:where(.swal2-popup) {
   background-color: black;
   width: 20%;
   z-index: 1000;
+  position: absolute;
+  top: 10%;
 }
 
 .div-attack {
   display: flex;
   margin: 10px;
   justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
 }
 
 .div-AutoPoint {
   display: flex;
   margin: 10px;
   justify-content: space-between;
+  align-items: center;
+}
+
+.Boton-Attack {
+  padding: 0.8rem;
+  background-color: purple;
+  border-radius: 20%;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
 }
 
 .box-login {

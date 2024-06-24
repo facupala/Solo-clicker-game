@@ -1,5 +1,4 @@
 function SumarPuntos(){
-    alert("+1 punto")
     jugardor1.puntaje++;
     PlayerPoint=document.querySelector("#Puntuacion");
     PlayerPoint.innerHTML="<Strong>"+jugardor1.puntaje+"</Strong>";
@@ -47,4 +46,11 @@ function ValidarNombre(){
         nombre=prompt("ingrese su Nickname para poder jugar(MAX 10 Caracteres)");
     }
 
+}
+
+function Efectosslash() {
+    const efectogolpe=document.createElement("p");
+efectogolpe.classList.add("Efectosumar");
+efectogolpe.innerHTML="+1"
+        ZonaJuego.appendChild(efectogolpe);
 }

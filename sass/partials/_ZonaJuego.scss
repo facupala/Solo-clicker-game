@@ -1,11 +1,46 @@
 #ZonaJuego{
-    display: flex;
     position: relative;
     width:100%; 
-    
+    align-items: center;
     padding-top: 150px;
     padding-bottom: 150px;
-    border: 2px solid purple;
-    background: rgb(2,0,36);
-background: linear-gradient(200deg, rgba(2,0,36,1) 0%, rgba(57,9,121,1) 39%, rgba(246,0,255,1) 100%);
+    background-image:url("../../img/fondo-juego.jpg") ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: purple;
+//     border: 2px solid purple;
+//     background: rgb(2,0,36);
+// background: linear-gradient(200deg, rgba(2,0,36,1) 0%, rgba(57,9,121,1) 39%, rgba(246,0,255,1) 100%);
+}
+.Temporizador{
+    display: flex;
+    font-size: 3rem;
+    color: black;
+    opacity: 0.5;
+    width: 50%;
+    text-align: center;
+   justify-content: center;
+   position: absolute;
+   left: 25%;
+   top:3%
+}
+.Efectosumar{
+    z-index: 1000;
+  position: absolute;
+  top: 30%;
+    left: 43%;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: moveUp 1s forwards;
+}
+@keyframes moveUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
 }

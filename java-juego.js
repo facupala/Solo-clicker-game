@@ -4,14 +4,6 @@
 PlayerPoint=document.querySelector("#Puntuacion");
 PlayerPoint.innerHTML="<Strong>"+0+"</Strong>";
 
-//!NO FUNCIONA BIEN
-// function MonsterEnemyRandom() {
-//     const RandomMonster=Math.floor(Math.random() * MonsterEnemy.length)
-//     const MonsterRandom= MonsterEnemy[RandomMonster];
-//     EnemyClick= querySelector("#EnemyClickerPoint");
-//     EnemyClick.innerHTML=`<img src="${MonsterRandom}" class="monster-image" alt="Monstruo">`;
-
-// }
 //! CREAMOS UN CONSTRUCTOR PARA LOS JUGADORES
 class players{
     constructor(nombre,puntaje,nacionalidad){
@@ -21,12 +13,6 @@ class players{
     }
 }
 //!CREAMOS UN ARRAY PARA LOS JUGADORES Y SONIDO
-// const MonsterEnemy=[
-//     "./Monster/monster1.webp",
-//     "./Monster/monster2.webp",
-//     "./Monster/monster3.png",
-//     "./Monster/monster4.webp"
-// ]
 const EffectAtack=[
     "./musica/espada1.mp3",
     "./musica/espada2.mp3",
@@ -74,7 +60,6 @@ ReiniciarPoint.addEventListener("click",() =>{
         if (result.isConfirmed) {
             ResetearPuntaje();
             ActualizarTop();
-            moverPunto();
           swalWithBootstrapButtons.fire({
             title: "Reiniciando",
             icon: "success"
@@ -91,18 +76,31 @@ ReiniciarPoint.addEventListener("click",() =>{
       });
     
     
-    moverPunto();
+   
     
 })
-//! cada vez que hacemos click suma 1 punto al jugador
+//! Monster
+const monster=document.createElement("img")
+monster.id="PointButton";
+monster.classList.add("StarButton");
+//! metodo fetch prueba
+
+fetch("./monster.json")
+.then(response => response.json())
+.then(data => {
+  console.log(data)
+  monster.src=data[1].url
+  monster.width=300;
+  ZonaJuego.appendChild(monster)
+})
+//! EVENTO CLICK PUNTO 
 const clicker=document.querySelector("#PointButton");
-clicker.addEventListener("click",() => {
+monster.addEventListener("click",() => {
     SumarPuntos();
     ActualizarTop();
-    moverPunto();
     playRandomEffect();
+    Efectosslash();
     coin.innerHTML="Coin:"+jugardor1.puntaje;
-    // MonsterEnemyRandom();
 });
 
 //!se crea la lista inicial antes de empezar hacer click (cuando hacemos click esta lista se borra y la remplaza la de la function)
@@ -149,4 +147,29 @@ BotonDark.addEventListener("click",() => {
         ActivarDarkMode();
     }
 });
+
+//!timer
+let time=5;
+
+const timer=document.createElement("h3")
+timer.classList.add("Temporizador");
+
+function tiempo(){
+  const contador=setInterval(() => {
+    timer.innerHTML=time;
+     ZonaJuego.appendChild(timer);
+     console.log(time)
+     time--;
+     if(time === -1){
+      console.log("termino el contador")
+      timer.remove();
+      time=5;
+      console.log(time);
+      clearInterval(contador);
+      tiempo();
+     }
+  }, 1000);
+}
+tiempo()
+
 

@@ -9,12 +9,14 @@ const divshop=document.createElement("div");
  const textatack=document.createElement("p");
  textatack.innerHTML="ataque: +1"
  const BuyAttack=document.createElement("button");
+ BuyAttack.classList.add("Boton-Attack");
  BuyAttack.innerHTML="Buy"
 const divAutoPoint=document.createElement("div");
 divAutoPoint.classList.add("div-AutoPoint")
 const TextAutoPoint=document.createElement("p")
 TextAutoPoint.innerHTML="autoclick: +1"
 const BuyAutoPoint=document.createElement("button");
+ BuyAutoPoint.classList.add("Boton-AutoPoint");
  BuyAutoPoint.innerHTML="Buy"
 
 
@@ -22,7 +24,7 @@ const BuyAutoPoint=document.createElement("button");
 
 //! BOX DE COMPRAS
 function carritoshop(){
- ZonaJuego.appendChild(divshop);
+ ZonaJuego.insertBefore(divshop,ZonaJuego.firstChild);
  divshop.appendChild(coin);
  divshop.appendChild(divattack);
  divattack.appendChild(textatack);
