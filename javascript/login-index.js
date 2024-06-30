@@ -12,30 +12,27 @@ form.innerHTML=' <label for="playerName">Ingrese su Nickname jugador:</label>'+
 const botonPlay=document.createElement("button");
 botonPlay.classList.add("BotonLogin");
 botonPlay.innerHTML='<a class="LinkJugar">Jugar</a>';
+
 header.appendChild(divTitle);
 divTitle.appendChild(H1Title);
 divTitle.appendChild(form);
 divTitle.appendChild(botonPlay);
 localStorage.setItem("playerName", "");
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const playerName = document.getElementById('playerName').value;
-    document.getElementById('result').textContent = `El nombre del jugador es: ${playerName}`;
-     localStorage.setItem("playerName", playerName);
-    form.reset();
-});
 
 
 console.log(playerName);
 
 botonPlay.addEventListener("click" ,() => {
-    playerName=localStorage.getItem("playerName");
+  const playerName = document.getElementById('playerName').value;
+  localStorage.setItem("playerName", playerName);
     console.log(playerName)
-    if (playerName !== "") {
+
+    if (playerName.trim() !== "") {
         Swal.fire({
             imageUrl: "./img/icono solo leveling.webp",
             title: `Gracias por participar ${playerName}`,
             confirmButtonText: "Continuar",
+
           }).then((result) => {
             if (result.isConfirmed) {
               setTimeout(() => {
