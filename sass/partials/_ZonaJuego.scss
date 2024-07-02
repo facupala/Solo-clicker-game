@@ -44,3 +44,10 @@
         transform: translateY(-50px);
     }
 }
+.monster-vida{
+    z-index: 1000;
+    color: black;
+    position: absolute;
+    top: 23%;
+    left: 50%;
+}

@@ -6,10 +6,11 @@ PlayerPoint.innerHTML="<Strong>"+0+"</Strong>";
 
 //! CREAMOS UN CONSTRUCTOR PARA LOS JUGADORES
 class players{
-    constructor(nombre,puntaje,nacionalidad){
+    constructor(nombre,puntaje,daño,moneda){
         this.nombre=nombre ;
     this.puntaje=puntaje;
-    this.nacionalidad=nacionalidad;
+    this.daño=daño;
+    this.moneda=moneda;
     }
 }
 //!CREAMOS UN ARRAY PARA LOS JUGADORES Y SONIDO
@@ -22,20 +23,21 @@ const EffectAtack=[
 
 const jugadores=[
     {nombre:"Guillermo", puntaje:25,},
-    {nombre:"rocio2",    puntaje:15,},
+    {nombre:"rocio2",    puntaje:13000,},
     {nombre:"Facundo",   puntaje:5,},
-    {nombre:"carlos",    puntaje:24,},
+    {nombre:"carlos",    puntaje:1000,},
     {nombre:"ditto",     puntaje:30.},
  ];
 //!  INTEREACTUAMOS CON EL USUARIO Y SUMAMOS SUS DATO AL ARRAY
  
  let nombre=localStorage.getItem("playerName");
-
+ let daño=1;
+ let moneda =  0;
  let puntaje=0;
  let y =0
 
 //! SUMAMOS LA INFO DEL JUGADOR AL ARRAY
-let jugardor1= new players(nombre,puntaje);
+let jugardor1= new players(nombre,puntaje,daño,moneda);
 jugadores.push(jugardor1);
 NickNam=document.querySelector("#NickName");
 NickNam.innerHTML= "<Strong>JUGADOR:"+" "+jugardor1.nombre+"</Strong>";
@@ -79,32 +81,64 @@ ReiniciarPoint.addEventListener("click",() =>{
    
     
 })
+
+
 //! Monster
-const monster=document.createElement("img")
+const monster=document.createElement("img");
 monster.id="PointButton";
 monster.classList.add("StarButton");
+const Monstervida=document.createElement("p");
+Monstervida.classList.add("monster-vida");
+let vida=1;
+let mon=0;
+let mun=0;
 //! metodo fetch prueba
-
+function creacionmonster(){
 fetch("./monster.json")
 .then(response => response.json())
 .then(data => {
+  
   console.log(data)
-  monster.src=data[1].url
+  
+  monster.src=data[mon].url
   monster.width=300;
   ZonaJuego.appendChild(monster)
+  ZonaJuego.appendChild(Monstervida)
+ vida=data[mon].vida
+ Monstervida.innerHTML=vida
 })
+}
+// creacionmonster();
+//!
+function Cambiomonster(){
+  if(mun===0){
+    creacionmonster();
+    mun++;
+  }
+  if(vida <= 0){
+    mon++;
+    creacionmonster();
+  }
+}
+Cambiomonster();
 //! EVENTO CLICK PUNTO 
 const clicker=document.querySelector("#PointButton");
 monster.addEventListener("click",() => {
+    jugardor1.moneda++;
     SumarPuntos();
     ActualizarTop();
     playRandomEffect();
     Efectosslash();
-    coin.innerHTML="Coin:"+jugardor1.puntaje;
+    coin.innerHTML="Coin:"+jugardor1.moneda.toFixed(2);
+    console.log(jugardor1);
+    vida-=daño;
+    Monstervida.innerHTML=vida
+    Cambiomonster();
+    
 });
 
-//!se crea la lista inicial antes de empezar hacer click (cuando hacemos click esta lista se borra y la remplaza la de la function)
 
+//!se crea la lista inicial antes de empezar hacer click (cuando hacemos click esta lista se borra y la remplaza la de la function)
 jugadores.sort((a,b) => b.puntaje - a.puntaje);
 for(i=0,o=1;i < jugadores.length; i++ , o++){
     console.log("TOP:"+o+" "+jugadores[i].puntaje);
@@ -148,6 +182,7 @@ BotonDark.addEventListener("click",() => {
     }
 });
 
+
 //!timer
 let time=5;
 
@@ -158,13 +193,13 @@ function tiempo(){
   const contador=setInterval(() => {
     timer.innerHTML=time;
      ZonaJuego.appendChild(timer);
-     console.log(time)
+    
      time--;
      if(time === -1){
       console.log("termino el contador")
       timer.remove();
       time=5;
-      console.log(time);
+      
       clearInterval(contador);
       tiempo();
      }

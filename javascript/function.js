@@ -34,23 +34,10 @@ function playRandomEffect() {
     const audio = new Audio(EffectAtack[RandomEffect]);
     audio.play();
 }
-function ValidarNombre(){
-    if(nombre.length <= 10 && nombre !== ""){
-        alert("Gracias por participar "+nombre);
-        y++;
-    }else if(nombre == ""){
-        alert("tiene que poner un nombre");
-        nombre=prompt("ingrese su Nickname para poder jugar(MAX 10 Caracteres)");
-    }else {
-        alert("superaste el limite de caracteres");
-        nombre=prompt("ingrese su Nickname para poder jugar(MAX 10 Caracteres)");
-    }
-
-}
 
 function Efectosslash() {
     const efectogolpe=document.createElement("p");
 efectogolpe.classList.add("Efectosumar");
-efectogolpe.innerHTML="+1"
+efectogolpe.innerHTML=daño
         ZonaJuego.appendChild(efectogolpe);
 }
