@@ -21,10 +21,15 @@ const BuyAutoPoint=document.createElement("button");
 
  //! PRECIOS
  MonedaAttaque=1
+ MonedaAutoAtaque=2
 //!BOX PRECIOS
 const precioAttack=document.createElement("p");
 precioAttack.innerHTML="<p>"+MonedaAttaque+"</p>";
-BuyAttack.appendChild(precioAttack)
+BuyAttack.appendChild(precioAttack);
+
+const PrecioAutoAttack=document.createElement("p");
+PrecioAutoAttack.innerHTML=MonedaAutoAtaque;
+BuyAutoPoint.appendChild(PrecioAutoAttack);
 
 //! BOX DE COMPRAS
 function carritoshop(){
@@ -47,7 +52,7 @@ const botonshop=document.querySelector("#botonshop")
 botonshop.addEventListener("click",()=>{
     if(box ===0){
         carritoshop();
-        coin.innerHTML="Coin:"+jugardor1.moneda;
+        coin.innerHTML="Coin:"+jugardor1.moneda.toFixed(2);
         box++;
     }else{
         removecarritoshop();
@@ -56,10 +61,11 @@ botonshop.addEventListener("click",()=>{
     
 
 });
+//! compras de shop
 BuyAttack.addEventListener("click", ()=>{
    if(jugardor1.moneda >= MonedaAttaque){
     jugardor1.moneda-=MonedaAttaque;
-    MonedaAttaque*=1.25;
+    MonedaAttaque*=1.5;
     daño++;
     console.log(MonedaAttaque.toFixed(2))
     console.log(jugardor1.moneda)
@@ -67,5 +73,31 @@ BuyAttack.addEventListener("click", ()=>{
     coin.innerHTML="Coin:"+jugardor1.moneda.toFixed(2);
    }
 });
-
-
+let Autodaño=0;
+BuyAutoPoint.addEventListener("click", () =>{
+    if(jugardor1.moneda >= MonedaAutoAtaque){
+        jugardor1.moneda-=MonedaAutoAtaque;
+        MonedaAutoAtaque*=2;
+        Autodaño++;
+        console.log(Autodaño);
+        PrecioAutoAttack.innerHTML=MonedaAutoAtaque;
+        coin.innerHTML="coin:"+jugardor1.moneda.toFixed(2);
+        AutodañoTiempo();
+    }
+})
+// let TiempoDaño=5;
+// function AutodañoTiempo(){
+// const TiempoAutodaño=setInterval(() => {
+//     TiempoDaño--;
+    
+//     console.log(TiempoDaño);
+//     if(TiempoDaño === 0){
+//         console.log("termino el contador");
+//         Autodaño-=vida;
+//         TiempoDaño=5
+//         clearInterval(TiempoAutodaño);
+//         AutodañoTiempo();
+//     }
+    
+// }, 1000);
+// }

@@ -7,7 +7,6 @@ function ActualizarTop(){
     TopLista.innerHTML='';//!.innerHTML = ''; se utiliza para borrar todo el contenido interno de un elemento. Al asignar una cadena vacía ('') a la propiedad .innerHTML de un elemento, se eliminan todos los elementos hijos y el contenido textual que el elemento pueda tener.
     jugadores.sort((a,b) => b.puntaje - a.puntaje);
     for(i=0,o=1;i < jugadores.length; i++ , o++){
-        console.log("TOP:"+o+" "+jugadores[i].nombre+" "+jugadores[i].puntaje);
         TopLista=document.querySelector("#TOPLista");
         TopLista.innerHTML +="<li>"+o+" "+jugadores[i].nombre+" "+jugadores[i].puntaje+"</li>";
         
@@ -40,4 +39,24 @@ function Efectosslash() {
 efectogolpe.classList.add("Efectosumar");
 efectogolpe.innerHTML=daño
         ZonaJuego.appendChild(efectogolpe);
+}
+
+let TiempoDaño=5;
+function AutodañoTiempo(){
+const TiempoAutodaño=setInterval(() => {
+    TiempoDaño--;
+    
+    console.log(TiempoDaño);
+    if(TiempoDaño === 0){
+        console.log("termino el contador");
+        vida-=Autodaño;
+        Monstervida.innerHTML=vida
+        TiempoDaño=5
+        console.log(vida)
+        Cambiomonster();
+        clearInterval(TiempoAutodaño);
+        AutodañoTiempo();
+    }
+    
+}, 1000);
 }

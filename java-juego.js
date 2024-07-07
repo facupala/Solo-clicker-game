@@ -92,7 +92,7 @@ Monstervida.classList.add("monster-vida");
 let vida=1;
 let mon=0;
 let mun=0;
-//! metodo fetch prueba
+//! METODO FETCH PARA LLAMAR A LOS MONSTRUOS 
 function creacionmonster(){
 fetch("./monster.json")
 .then(response => response.json())
@@ -108,8 +108,7 @@ fetch("./monster.json")
  Monstervida.innerHTML=vida
 })
 }
-// creacionmonster();
-//!
+//! CAMBIO DE MONSTRUO
 function Cambiomonster(){
   if(mun===0){
     creacionmonster();
@@ -118,14 +117,15 @@ function Cambiomonster(){
   if(vida <= 0){
     mon++;
     creacionmonster();
+    SumarPuntos()
   }
 }
 Cambiomonster();
-//! EVENTO CLICK PUNTO 
+//! EVENTO CLICK AL MONSTRUO 
 const clicker=document.querySelector("#PointButton");
 monster.addEventListener("click",() => {
     jugardor1.moneda++;
-    SumarPuntos();
+    // SumarPuntos();
     ActualizarTop();
     playRandomEffect();
     Efectosslash();
@@ -138,7 +138,7 @@ monster.addEventListener("click",() => {
 });
 
 
-//!se crea la lista inicial antes de empezar hacer click (cuando hacemos click esta lista se borra y la remplaza la de la function)
+//!se crea el top inicial
 jugadores.sort((a,b) => b.puntaje - a.puntaje);
 for(i=0,o=1;i < jugadores.length; i++ , o++){
     console.log("TOP:"+o+" "+jugadores[i].puntaje);
@@ -184,7 +184,7 @@ BotonDark.addEventListener("click",() => {
 
 
 //!timer
-let time=5;
+let time=90;
 
 const timer=document.createElement("h3")
 timer.classList.add("Temporizador");
@@ -198,8 +198,8 @@ function tiempo(){
      if(time === -1){
       console.log("termino el contador")
       timer.remove();
-      time=5;
-      
+      time=90;
+      creacionmonster()
       clearInterval(contador);
       tiempo();
      }
